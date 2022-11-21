@@ -12,8 +12,10 @@ export const RQSuperHeroesPage = () => {
     {
       // cacheTime: 5 *60* 1000, // default 5min cache
       // staleTime: 30 * 1000, // default: 0
-      refetchOnMount: "always", // default true
-      refetchOnWindowFocus: "always", // default true
+      // refetchOnMount: "always", // default true
+      // refetchOnWindowFocus: "always", // default true
+      refetchInterval: 2 * 1000, // default false
+      refetchIntervalInBackground: true, // default false
     }
   );
 
