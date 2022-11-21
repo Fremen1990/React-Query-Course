@@ -6,10 +6,16 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSuperHeroesPage = () => {
-  const { data, isLoading, isError, error } = useQuery(
+  const { data, isLoading, isError, error, isFetching } = useQuery(
     "super-heroes",
-    fetchSuperHeroes
+    fetchSuperHeroes,
+    {
+      cacheTime: 5 * 1000,
+      staleTime: 30 * 1000, // default: 0
+    }
   );
+
+  console.log({ isLoading, isFetching });
 
   if (isLoading) return <h2>Loading...</h2>;
 
@@ -24,5 +30,3 @@ export const RQSuperHeroesPage = () => {
     </>
   );
 };
-
-//TODO React Query Tutorial - 3 - Fetching Data with useQuery  5:00
